@@ -1,0 +1,74 @@
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: User login failed, running database handler for failure.
+AXES: New login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Created new record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: Brix
+Too Many Requests: /login/
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: Brix
+Too Many Requests: /login/
+AXES: User login failed, running database handler for failure.
+AXES: New login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Created new record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: ivan
+Too Many Requests: /login/
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: Successful login by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}.
+Brix logged in successfully
+AXES: Successful logout by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/logout/"}.
+AXES: User login failed, running database handler for failure.
+AXES: New login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Created new record in the database.
+Failed login attempt for username: qwe
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+Failed login attempt for username: qwe
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+Failed login attempt for username: qwe
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+Failed login attempt for username: qwe
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: qwe
+Too Many Requests: /login/
+AXES: User login failed, running database handler for failure.
+AXES: New login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Created new record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: Brix
+Too Many Requests: /login/
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: User login failed, running database handler for failure.
+AXES: Repeated login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Updated existing record in the database.
+AXES: Locking out {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"} after repeated login failures.
+Failed login attempt for username: Brix
+Too Many Requests: /login/
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: Successful login by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}.
+Brix logged in successfully
+AXES: BEGIN version 8.3.1, blocking by ip_address
+AXES: BEGIN version 8.3.1, blocking by ip_address
+Watching for file changes with StatReloader
+AXES: Successful logout by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/logout/"}.
+AXES: User login failed, running database handler for failure.
+AXES: New login failure by {username: "********************", ip_address: "********************", user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.121.0 Chrome/142.0.7444.265 Electron/39.8.8 Safari/537.36", path_info: "/login/"}. Created new record in the database.
+Failed login attempt for username: sdasd
+C:\Users\Admin\DESKTOP\Premium-Developer-Job-Board-Freemium-Model-\mysite\settings.py changed, reloading.

@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-
+from .utils import create_audit_log
 from rest_framework.viewsets import ModelViewSet
 
 from .forms import RegisterForm
@@ -108,8 +108,12 @@ def login_view(request):
 
         if user:
             login(request, user)
+            create_audit_log(request, f"LOGIN SUCCESS: {username}")
             return redirect('dashboard')
 
+
+        create_audit_log(request, f"LOGIN FAILED: {username}")
+        
         error = 'Invalid username or password'
 
     return render(request, 'accounts/login.html', {'error': error})
