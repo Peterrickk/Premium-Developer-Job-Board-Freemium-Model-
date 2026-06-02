@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+<p>Current User: {{ user.username }}</p>
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h3>{{ total_applications }}</h3>
+
+<p>Applications</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+{% if user.is_premium %}
+
+<span class="badge bg-success">
+Premium Active
+</span>
+
+{% else %}
+
+<span class="badge bg-warning">
+Free User
+</span>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

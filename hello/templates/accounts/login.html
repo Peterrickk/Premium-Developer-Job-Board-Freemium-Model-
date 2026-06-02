@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+.auth-box {
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+}
+</style>
+
+<div class="auth-box">
+
+    <h3 class="text-center mb-4">Login</h3>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+
+        <div class="mb-3">
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+
+        <button class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <p class="text-center mt-3">
+        No account?
+        <a href="{% url 'register' %}">Register</a>
+    </p>
+
+</div>
+
+{% endblock %}

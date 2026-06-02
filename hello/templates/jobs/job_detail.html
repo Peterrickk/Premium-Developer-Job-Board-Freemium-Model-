@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load job_tags %}
+
+{% block content %}
+
+<div class="card">
+
+<div class="card-body">
+
+<h2>{{ job.title }}</h2>
+
+<p>
+<strong>Company:</strong>
+{{ job.company.company_name }}
+</p>
+
+<p>
+<strong>Location:</strong>
+{{ job.location }}
+</p>
+
+<p>
+{{ job.description }}
+</p>
+
+{% if user.is_authenticated and user.is_premium %}
+
+<p>
+<strong>Salary:</strong>
+{{ job.salary_range }}
+</p>
+
+<a href="{{ job.application_link }}"
+   class="btn btn-success">
+   Apply Now
+</a>
+
+{% else %}
+
+<p>
+<strong>Salary:</strong>
+🔒 Premium Only
+</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

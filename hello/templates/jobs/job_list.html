@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 fw-bold">Find Developer Jobs</h2>
+
+<form method="GET" class="row mb-4">
+
+    <div class="col-md-5">
+        <input type="text"
+               name="search"
+               value="{{ search }}"
+               class="form-control"
+               placeholder="Search job title...">
+    </div>
+
+    <div class="col-md-5">
+        <input type="text"
+               name="location"
+               value="{{ location }}"
+               class="form-control"
+               placeholder="Location...">
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-primary w-100">
+            Search
+        </button>
+    </div>
+
+</form>
+
+<div class="row">
+
+    {% for job in page_obj %}
+
+    <div class="col-md-6 mb-4 job-card">
+
+        <div class="card shadow-sm p-3">
+
+            <h5 class="fw-bold">{{ job.title }}</h5>
+
+            <p class="mb-1 text-muted">
+                {{ job.company.company_name }}
+            </p>
+
+            <p class="mb-2">
+                📍 {{ job.location }}
+            </p>
+
+            {% if user.is_authenticated and user.is_premium %}
+
+                <p class="text-success fw-bold">
+                    Salary: {{ job.salary_range }}
+                </p>
+
+                <a href="https://{{ job.application_link }}"
+                   target="_blank"
+                   class="btn btn-success w-100">
+                    Apply Now
+                </a>
+
+            {% else %}
+
+                <p class="text-muted">
+                    Salary: Premium Required
+                </p>
+
+                <button class="btn btn-secondary w-100" disabled>
+                    Unlock Premium to View
+                </button>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
