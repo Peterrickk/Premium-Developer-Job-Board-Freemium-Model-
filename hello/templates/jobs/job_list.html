@@ -2,7 +2,25 @@
 
 {% block content %}
 
-<h2 class="mb-4 fw-bold">Find Developer Jobs</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0 fw-bold">Find Developer Jobs</h2>
+    
+    {% if user.is_authenticated %}
+        {% if user.is_premium %}
+            <a href="{% url 'create_job' %}" class="btn btn-success fw-bold">
+                + Post a Job Offer
+            </a>
+        {% else %}
+            <a href="{% url 'premium' %}" class="btn btn-outline-warning fw-bold">
+                ⭐ Post a Job (Premium Only)
+            </a>
+        {% endif %}
+    {% else %}
+        <a href="{% url 'login' %}" class="btn btn-outline-primary fw-bold">
+            Log in to Post a Job
+        </a>
+    {% endif %}
+</div>
 
 <form method="GET" class="row mb-4">
 
@@ -54,8 +72,7 @@
                     Salary: {{ job.salary_range }}
                 </p>
 
-                <a href="https://{{ job.application_link }}"
-                   target="_blank"
+                <a href="{% url 'apply_to_job' job.pk %}"
                    class="btn btn-success w-100">
                     Apply Now
                 </a>

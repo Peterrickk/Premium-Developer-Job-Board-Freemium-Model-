@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card p-4 shadow-sm text-white border-0" style="background-color: #1a233a;">
+            <h3 class="mb-3 text-center">Update Account Details</h3>
+            <hr class="border-secondary">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex gap-2 mt-4">
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary w-50">Cancel</a>
+                    <button type="submit" class="btn btn-info text-white w-50">Save Updates</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

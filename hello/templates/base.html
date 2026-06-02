@@ -7,7 +7,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -101,41 +100,62 @@
         .btn-primary { background: #6366f1; border: none; }
         .btn-success { background: #22c55e; border: none; }
         .btn-warning { background: #f59e0b; border: none; }
-    .card, .card * {
-    color: #e5e7eb !important;
-}
+        
+        .card, .card * {
+            color: #e5e7eb !important;
+        }
 
-/* Make job title stand out */
-.card h5 {
-    color: #ffffff !important;
-    font-weight: 600;
-}
+        /* Make job title stand out */
+        .card h5 {
+            color: #ffffff !important;
+            font-weight: 600;
+        }
 
-/* Strong labels */
-.card strong {
-    color: #cbd5e1 !important;
-}
+        /* Strong labels */
+        .card strong {
+            color: #cbd5e1 !important;
+        }
+
+        /* ALERT CUSTOM OVERRIDES (Fixes grey text issue in dark mode banners) */
+        .alert {
+            border: none;
+            border-radius: 8px;
+        }
+        .alert-danger, .alert-danger * {
+            background-color: #7f1d1d !important;
+            color: #fee2e2 !important;
+        }
+        .alert-success, .alert-success * {
+            background-color: #064e3b !important;
+            color: #d1fae5 !important;
+        }
+        .alert-warning, .alert-warning * {
+            background-color: #78350f !important;
+            color: #fef3c7 !important;
+        }
+        .alert-info, .alert-info * {
+            background-color: #1e3a8a !important;
+            color: #dbeafe !important;
+        }
+        .btn-close {
+            filter: invert(1); /* Makes the close 'X' button visible in dark alerts */
+        }
     </style>
 </head>
 
 <body>
 
-<!-- =======================
-     NAVBAR
-======================= -->
 {% if request.path != '/login/' and request.path != '/register/' %}
 <nav class="navbar navbar-expand-lg navbar-dark">
 
     <div class="container d-flex justify-content-between align-items-center">
 
-        <!-- LEFT -->
         <div class="nav-section">
             <a class="navbar-brand" href="{% url 'job_list' %}">
                 DevJobs Pro
             </a>
         </div>
 
-        <!-- CENTER -->
         <div class="nav-section">
             <a href="{% url 'job_list' %}" class="btn btn-outline-light btn-sm">
                 Jobs
@@ -146,7 +166,6 @@
             </a>
         </div>
 
-        <!-- RIGHT -->
         <div class="nav-section">
 
             {% if user.is_authenticated %}
@@ -177,13 +196,26 @@
 </nav>
 {% endif %}
 
-<!-- =======================
-     CONTENT
-======================= -->
 <div class="container page-container">
+    
+    {% if messages %}
+        <div class="row msg-container">
+            <div class="col-12">
+                {% for message in messages %}
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show fw-semibold shadow mb-4" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

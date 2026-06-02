@@ -1,7 +1,20 @@
+import os
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 
 # Create your models here.
+
+
+def validate_pdf_extension(value):
+    ext = os.path.splitext(value.name)[1]
+    if ext.lower() != '.pdf':
+        raise ValidationError('Unsupported file format. Please upload a PDF.')
+
+    # 5MB size limit calculation (5 * 1024 * 1024 bytes)
+    if value.size > 5242880:
+        raise ValidationError(
+            'File size too large. Resumes must be under 5MB.')
 
 
 class Role(models.Model):
@@ -94,6 +107,13 @@ class Application(models.Model):
         default='Pending'
     )
 
+    resume = models.FileField(
+        upload_to='resumes/',
+        validators=[validate_pdf_extension],
+        null=True,
+        blank=True
+    )
+
     class Meta:
         unique_together = ('user', 'job')
 
@@ -124,12 +144,11 @@ class PremiumSubscription(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.status}"
-    
-
 
 
 class AuditLog(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True)
     action = models.CharField(max_length=255)
     ip_address = models.GenericIPAddressField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
