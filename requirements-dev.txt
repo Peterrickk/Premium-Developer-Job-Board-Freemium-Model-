@@ -10,7 +10,9 @@ djangorestframework==3.17.1
 djangorestframework_simplejwt==5.5.1
 gunicorn==22.0.0
 idna==3.17
+packaging==26.2
 pillow==12.2.0
+psycopg[binary]==3.2.13
 PyJWT==2.13.0
 python-dotenv==1.2.2
 requests==2.34.2
