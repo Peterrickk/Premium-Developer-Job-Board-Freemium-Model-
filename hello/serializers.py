@@ -39,21 +39,26 @@ class JobSerializer(serializers.ModelSerializer):
             'location', 'salary_range', 'application_link', 'created_at', 'is_active'
         ]
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        request = self.context.get('request')
+    # In serializers.py -> JobSerializer
 
-        is_premium_user = False
 
-        if request and request.user:
-            if request.user.is_authenticated and getattr(request.user, 'is_premium', False):
-                is_premium_user = True
+def to_representation(self, instance):
+    representation = super().to_representation(instance)
+    request = self.context.get('request')
 
-        if not is_premium_user:
-            representation['salary_range'] = "Only viewable for premium users."
-            representation['application_link'] = "Only viewable for premium users."
+    # Guard clause: safe checking if user is premium
+    is_premium_user = (
+        request
+        and request.user
+        and request.user.is_authenticated
+        and getattr(request.user, 'is_premium', False)
+    )
 
-        return representation
+    if not is_premium_user:
+        representation['salary_range'] = "Only viewable for premium users."
+        representation['application_link'] = "Only viewable for premium users."
+
+    return representation
 
 
 class ApplicationSerializer(serializers.ModelSerializer):

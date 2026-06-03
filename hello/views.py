@@ -83,31 +83,6 @@ class IsJobSeekerOrEmployerOwner(BasePermission):
         return obj.job.company.created_by == request.user
 
 
-class IsJobSeekerOrEmployerOwner(BasePermission):
-    """
-    Only authenticated 'Job Seekers' can submit an application (POST).
-    Only the Employer who owns the job can modify/view specific application details.
-    """
-
-    def has_permission(self, request, view):
-        if not (request.user and request.user.is_authenticated):
-            return False
-
-        # Anyone authenticated can read/list within their object scope
-        if request.method in SAFE_METHODS:
-            return True
-
-        # Only Job Seekers can create a new application entry
-        return request.user.role and request.user.role.role_name == "Job Seeker"
-
-    def has_object_permission(self, request, view, obj):
-        # A Job Seeker can view their own application
-        if obj.user == request.user:
-            return True
-        # An Employer can view/edit applications for jobs belonging to their company
-        return obj.job.company.created_by == request.user
-
-
 def job_list(request):
     jobs = Job.objects.filter(is_active=True).select_related('company')
 
@@ -443,9 +418,24 @@ class CompanyViewSet(ModelViewSet):
 
 
 class ApplicationViewSet(ModelViewSet):
-    queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
     permission_classes = [IsJobSeekerOrEmployerOwner]
+
+    def get_queryset(self):
+        user = self.request.user
+        if not user.is_authenticated:
+            return Application.objects.none()
+
+        # If they are an employer, show apps for jobs belonging to their company
+        if getattr(user.role, 'role_name', None) == "Employer":
+            return Application.objects.filter(job__company__created_by=user)
+
+        # If they are a job seeker, only show their own applications
+        return Application.objects.filter(user=user)
+
+    def perform_create(self, serializer):
+        # Automatically bind the authenticated API user to their application asset
+        serializer.save(user=self.request.user, status='Pending')
 
 
 class UserViewSet(ModelViewSet):
