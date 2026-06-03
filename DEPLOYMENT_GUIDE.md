@@ -40,6 +40,14 @@
 
 3. Install dependencies:
 
+   **For Windows/Local Development:**
+
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+   **For Linux/Production (Render):**
+
    ```bash
    pip install -r requirements.txt
    ```
