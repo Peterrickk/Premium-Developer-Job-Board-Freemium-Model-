@@ -177,8 +177,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Axes (Login attempt limiting)
-AXES_FAILURE_LIMIT = 15  # Allow 15 failed attempts before locking
-AXES_LOCKOUT_DURATION = 60  # Unlock after 60 minutes (1 hour)
+AXES_FAILURE_LIMIT = 100  # Allow 100 failed attempts before locking
+AXES_LOCKOUT_DURATION = 30  # Unlock after 30 minutes
 AXES_USE_USER_AGENT = False  # Don't lock based on user agent
 AXES_LOCK_OUT_AT_FAILURE = True
 
