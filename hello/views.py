@@ -219,6 +219,11 @@ def login_view(request):
     error = None
 
     if request.method == 'POST':
+        
+        if request.POST.get('website'):
+            create_audit_log(request, "HONEYPOT TRIGGERED")
+            return redirect('job_list')
+        
         username = request.POST.get('username')
         password = request.POST.get('password')
 
