@@ -35,11 +35,21 @@ envVarGroups:
         fromDatabase:
           name: postgres
           property: connectionString
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: premium-developer-job-board-freemium-sr2m.onrender.com
       - key: CLOUDINARY_CLOUD_NAME
         value: # Set in Render dashboard
       - key: CLOUDINARY_API_KEY
         value: # Set in Render dashboard
       - key: CLOUDINARY_API_SECRET
+        value: # Set in Render dashboard
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_EMAIL
+        value: admin@jobboard.com
+      - key: ADMIN_PASSWORD
         value: # Set in Render dashboard
 
 databases:
