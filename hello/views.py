@@ -194,11 +194,11 @@ def login_view(request):
     error = None
 
     if request.method == 'POST':
-        
+
         if request.POST.get('website'):
             create_audit_log(request, "HONEYPOT TRIGGERED")
             return redirect('job_list')
-        
+
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -420,6 +420,10 @@ class CompanyViewSet(ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     permission_classes = [IsEmployerOrReadOnly]
+
+    def perform_create(self, serializer):
+        # Automatically bind the authenticated logged-in Employer to the company record
+        serializer.save(created_by=self.request.user)
 
 
 class ApplicationViewSet(ModelViewSet):
