@@ -10,7 +10,7 @@ services:
     startCommand: gunicorn mysite.wsgi:application
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11
+        value: 3.12
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: DEBUG
