@@ -187,3 +187,7 @@ if not DEBUG:
     SECURE_CONTENT_SECURITY_POLICY = {
         'default-src': ("'self'",),
     }
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
