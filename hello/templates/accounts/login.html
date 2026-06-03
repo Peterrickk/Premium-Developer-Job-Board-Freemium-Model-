@@ -24,6 +24,13 @@
     <form method="POST">
         {% csrf_token %}
 
+        <input
+        type="text"
+        name="website"
+        style="display:Block;"
+        tabindex="-1"
+        autocomplete="off">
+
         <div class="mb-3">
             <input type="text" name="username" class="form-control" placeholder="Username">
         </div>
