@@ -176,7 +176,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AXES_FAILURE_LIMIT = 5
+# Axes (Login attempt limiting)
+AXES_FAILURE_LIMIT = 15  # Allow 15 failed attempts before locking
+AXES_LOCKOUT_DURATION = 60  # Unlock after 60 minutes (1 hour)
+AXES_USE_USER_AGENT = False  # Don't lock based on user agent
+AXES_LOCK_OUT_AT_FAILURE = True
 
 # Security Settings for Production
 if not DEBUG:
